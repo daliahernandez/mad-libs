@@ -1,18 +1,13 @@
 $(document).ready(function(){
   $('#userResponse form').submit(function(event){
-    var nameOneInput = $('input#nameOne').val();
-    var nameTwoInput = $('input#nameTwo').val();
-    var animalInput = $('input#animal').val();
-    var exInput = $('input#ex').val();
-    var verbInput = $('input#verb').val();
-    var nounInput = $('input#noun').val();
-
-    $('.nameOne').text(nameOneInput);
-    $('.nameTwo').text(nameTwoInput);
-    $('.animal').text(animalInput);
-    $('.ex').text(exInput);
-    $('.verb').text(verbInput);
-    $('.noun').text(nounInput)
+    //create a variable and store all of the input id names
+    var responses = ["nameOne","nameTwo","animal","ex","verb","noun"];
+    //go into each input id names and add the input and id and the name.
+    responses.forEach(function(responses){
+      var userInput = $('input#'+ responses).val();
+      //then go to the story and grab the classes which are names the same as the id names and show the the userInputs.
+      $("." + responses).text(userInput);
+    })
 
     $('#story').show();
     event.preventDefault();
